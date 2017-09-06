@@ -1,6 +1,8 @@
 var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     connect = require('gulp-connect'),
+    imagemin = require('gulp-imagemin'),
+    pnquant = require('imagemin-pngquant');
     postcss = require('gulp-postcss'),
     rename = require('gulp-rename'),
     autoprefixer = require('autoprefixer'),
@@ -66,8 +68,20 @@ gulp.task('styles', function () {
 // html
 gulp.task('html', function() {
     gulp.src('src/*.html')
-        .pipe(gulp.dest('dist/'))
-        .pipe(connect.reload());
+    .pipe(gulp.dest('dist/'))
+    .pipe(connect.reload());
+});
+
+// image
+gulp.task('compressimg', function() {
+    gulp.src('src/img/**/*')
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pnquant()]
+        }))
+    .pipe(gulp.dest('dist/img'))
+    .pipe(connect.reload());
 });
 
 // watch
@@ -75,6 +89,7 @@ gulp.task('watch', function () {
     gulp.watch('src/styles/**/*.pcss', ['styles']);
     gulp.watch('src/**/*.js', ['js']);
     gulp.watch('src/*.html', ['html']);
+    gulp.watch('src/img/**/*', ['compressimg']);
 });
 
-gulp.task('default', ['html', 'styles', 'connect', 'watch']);
+gulp.task('default', ['html', 'styles', 'connect', 'compressimg', 'watch']);

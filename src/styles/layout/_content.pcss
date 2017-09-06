@@ -1,0 +1,55 @@
+.hero {
+    @mixin flex-box column, center, flex-start;
+    background: url(../img/hero-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: #fff;
+    position: relative;
+
+    &__content {
+        @mixin flex-box row, center, space-between;
+        padding-top: 65px;
+    }
+}
+
+.main-nav {
+    @mixin flex-box row, center, space-between;
+    max-width: 600px;
+    width: 100%;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        text-transform: uppercase;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 4px;
+            background-color: #f65872;
+            opacity: 0;
+            transition: opacity 0.3s, width 0.5s;
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.main-title { 
+    font-size: 65px;
+    text-align: center;
+    margin: auto;
+    font-weight: 100;
+    max-width: 100%;
+}

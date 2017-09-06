@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="233" height="36" viewBox="0 0 233 36">
+    <g fill="none" fill-rule="evenodd">
+        <text font-family=".SFNSDisplay, .SF NS Display" font-size="36" transform="translate(-1 -6)">
+            <tspan x="0" y="35" fill="#FFF">Secret</tspan> <tspan x="102.111" y="35" fill="#8299AA">Project</tspan>
+        </text>
+        <text fill="#FFF" font-family="ProximaNova-Regular, Proxima Nova" font-size="14" opacity=".66" transform="translate(-1 -6)">
+            <tspan x="201" y="16">alpha</tspan>
+        </text>
+    </g>
+</svg>

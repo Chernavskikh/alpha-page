@@ -1,0 +1,140 @@
+.container {
+    max-width: 1030px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.primary-title {
+    font-size: 36px;
+    font-weight: 100;
+    color: #000;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+
+    &--white {
+        color: #fff;
+    }
+}
+
+.section {
+    padding-top: 85px;
+    padding-bottom: 65px;
+    text-align: center;
+
+    &-benefits {
+        background: url(../img/benefits-bg.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding-bottom: 100px;
+
+        &--container {
+            @mixin flex-box row, stretch, flex-start;
+            flex-wrap: wrap;
+        }
+
+        &__title {
+            font-size: 64px;
+            line-height: 1.25;
+            text-align: left;
+            flex: 0 0 50%;
+            font-weight: 400;
+        }
+
+        &__main-text {
+            @mixin flex-box column, flex-start, space-between;
+            font-size: 24px;
+            flex: 0 0 50%;
+            text-align: left;
+            padding: 14px 0;
+
+            p {
+                padding-left: 100px;
+            }
+        }
+    }
+
+    &-plans {
+        background: url(../img/pattern.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    &__text {
+        font-size: 18px;
+        line-height: 1.65em;
+    }
+}
+
+.decorate-list {
+    @mixin flex-box row, flex-start, space-between;
+    list-style-type: none;
+    flex: 0 0 100%;
+    margin-top: 110px;
+
+    li {
+        max-width: 400px;
+        font-size: 18px;
+        line-height: 1.67em;
+        text-align: left;
+        color: #000000;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 65px;
+            left: 0;
+            top: -30px;
+            background-color: #f65872;
+
+        }
+    }
+
+    &--count {
+        @mixin flex-box row, stretch, flex-start;
+        flex-wrap: wrap;
+
+        li {
+            counter-increment: list;
+            max-width: 400px;
+            margin-bottom: 65px;
+            margin-right: 75px;
+            padding-top: 30px;
+
+            &::before {
+                content: counter(list)  '. ';
+                display: block;
+                border-bottom: 4px solid #f65872;
+                background: none;
+                height: auto;
+                width: 65px;
+                font-size: 36px;
+                line-height: 0.83;
+                padding-bottom: 15px;
+            }
+        }
+    }
+}
+
+.plans-block {
+    @mixin flex-box row, flex-start, space-between;
+    margin: 0 auto;
+    max-width: 840px;
+}
+
+.plan-card {
+    @mixin flex-box column, flex-start, flex-start;
+    width: 33,3%;
+    height: 240px;
+    background-color: #3e556a;
+    border: solid 1px #283f54;
+}
