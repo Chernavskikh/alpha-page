@@ -66,6 +66,8 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        padding-bottom: 200px;
+        padding-top: 100px;
     }
     &__text {
         font-size: 18px;
@@ -128,13 +130,49 @@
 .plans-block {
     @mixin flex-box row, flex-start, space-between;
     margin: 0 auto;
-    max-width: 840px;
+    max-width: 830px;
+    box-shadow: 0 10px 12px 0 rgba(0,0,0,0.15),0 30px 40px rgba(0,0,0,0.15);
 }
 
 .plan-card {
-    @mixin flex-box column, flex-start, flex-start;
-    width: 33,3%;
+    @mixin flex-box column, center, flex-start;
+    width: 33.3%;
     height: 240px;
     background-color: #3e556a;
-    border: solid 1px #283f54;
+    padding-top: 55px;
+    text-align: center;
+
+    &__title {
+        opacity: 0.5;
+        font-size: 18px;
+        text-align: center;
+        color: #cdd9e2;
+    }
+    
+    &__price {
+        font-size: 36px;
+        line-height: 2.22em;
+        color: #ffffff;
+    }
+
+    &--center {
+        background: #51667a;
+
+        .btn-default {
+            background: #f65872;
+        }
+    }
+}
+
+.register-form {
+    @mixin flex-box row, flex-start, flex-start;
+    max-width: 830px;
+    margin: 0 
+}
+
+.form-control {
+    max-width: 405px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    border: solid 1px #cdd9e2;
 }

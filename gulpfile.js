@@ -73,7 +73,7 @@ gulp.task('html', function() {
 });
 
 // image
-gulp.task('compressimg', function() {
+gulp.task('compressing', function() {
     gulp.src('src/img/**/*')
         .pipe(imagemin({
             progressive: true,
@@ -92,4 +92,4 @@ gulp.task('watch', function () {
     gulp.watch('src/img/**/*', ['compressimg']);
 });
 
-gulp.task('default', ['html', 'styles', 'connect', 'compressimg', 'watch']);
+gulp.task('default', ['html', 'styles', 'connect', 'compressing', 'watch']);
