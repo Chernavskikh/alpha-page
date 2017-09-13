@@ -24,3 +24,22 @@ button, a {
         background: #f65872;
     }
 }
+
+.btn-social {
+    @mixin flex-box row, center, center;
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    background-color: #cdd9e2;
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+
+    + .btn-social {
+        margin-left: 5px;
+    }
+
+    &:hover {
+        background: color(#cdd9e2 b(20%));
+    }
+}

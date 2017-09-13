@@ -4,6 +4,18 @@
     padding-left: 15px;
     padding-right: 15px;
     width: 100%;
+
+    &-sm {
+        max-width: 860px;
+    }
+
+    @media (width <= 1024px) {
+        max-width: 960px;
+    }
+
+    @media (width <= 960px) {
+        max-width: 100%;
+    }
 }
 
 .text-center {
@@ -21,12 +33,18 @@
     &--white {
         color: #fff;
     }
+
+    @media (width < 768px) {
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
 }
 
 .section {
     padding-top: 85px;
     padding-bottom: 65px;
     text-align: center;
+    background: #fff;
 
     &-benefits {
         background: url(../img/benefits-bg.jpg);
@@ -38,6 +56,10 @@
         &--container {
             @mixin flex-box row, stretch, flex-start;
             flex-wrap: wrap;
+
+            @media (width <= 768px) {
+                flex-direction: column;
+            }
         }
 
         &__title {
@@ -46,17 +68,29 @@
             text-align: left;
             flex: 0 0 50%;
             font-weight: 400;
+
+            @media (width <= 960px) {
+                font-size: 35px;
+            }
         }
 
         &__main-text {
             @mixin flex-box column, flex-start, space-between;
             font-size: 24px;
-            flex: 0 0 50%;
+            flex: 1;
             text-align: left;
             padding: 14px 0;
 
             p {
                 padding-left: 100px;
+
+                @media (width <= 960px) {
+                    padding-left: 10px;
+                }
+
+                @media (width <= 768px) {
+                    padding-left: 0;
+                }
             }
         }
     }
@@ -98,18 +132,25 @@
             top: -30px;
             background-color: #f65872;
 
+            @media (width <= 768px) {
+                top: -7px;
+            }
+        }
+
+        @media (width <= 768px) {
+            margin-top: 30px;
         }
     }
 
     &--count {
-        @mixin flex-box row, stretch, flex-start;
+        @mixin flex-box row, stretch, center;
         flex-wrap: wrap;
 
         li {
             counter-increment: list;
             max-width: 400px;
             margin-bottom: 65px;
-            margin-right: 75px;
+            padding-right: 75px;
             padding-top: 30px;
 
             &::before {
@@ -122,8 +163,25 @@
                 font-size: 36px;
                 line-height: 0.83;
                 padding-bottom: 15px;
+                position: absolute;
+                left: 0;
+            }
+
+            @media (width <= 1024px) {
+                max-width: 50%;
+            }
+
+            @media (width <= 768px) {
+                max-width: 100%;
+                padding: 50px 0 0 0;
+                margin: 0 0 35px;
             }
         }
+    }
+
+    @media (width <= 768px) {
+        flex-direction: column;
+        margin-top: 15px;
     }
 }
 
@@ -132,6 +190,11 @@
     margin: 0 auto;
     max-width: 830px;
     box-shadow: 0 10px 12px 0 rgba(0,0,0,0.15),0 30px 40px rgba(0,0,0,0.15);
+
+    @media (width <= 700px) {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .plan-card {
@@ -162,17 +225,83 @@
             background: #f65872;
         }
     }
+
+    @media (width <= 700px) {
+        width: calc(100% - 15px);
+    }
 }
 
 .register-form {
-    @mixin flex-box row, flex-start, flex-start;
+    @mixin flex-box row, flex-start, space-between;
+    flex-wrap: wrap;
     max-width: 830px;
-    margin: 0 
+    margin: 0 auto;
+
+    @media (width <= 960px) {
+        flex-direction: column;
+        width: 100%;
+        max-width: 600px;
+        padding: 0 15px;
+        align-items: center;
+    }
 }
 
 .form-control {
+    width: 100%;
     max-width: 405px;
     border-radius: 6px;
     background-color: #ffffff;
     border: solid 1px #cdd9e2;
+    padding: 25px 15px;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    &::placeholder{
+        color: #afb9c1;
+    }
+
+    &:focus, &:active {
+         box-shadow: 0 0 6px 0 #6ebcff;
+         border: 1px solid #5db6ff;
+         outline: none;
+    }
+
+    &--btn {
+        background: #f65872;
+        border-color: #f65872;
+        color: #fff;    
+            &:focus, &:active {
+                box-shadow: 0 0 6px 0 #f65872;
+                border: 1px solid #f65872;
+                outline: none;
+        }
+    }
+
+    @media (width < 768px) {
+        padding: 10px 15px;
+    }
+}
+
+.nav-terms {
+    text-align: right;
+    padding: 9px 0;
+
+    a {
+        color: #f65872;
+        font-size: 14px;
+        text-decoration: none;
+
+        + a {
+            margin-left: 20px;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.copyright {
+    margin-right: 20px;
+    padding: 9px 0;
 }

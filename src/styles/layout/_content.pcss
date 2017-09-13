@@ -1,8 +1,5 @@
 .hero {
     @mixin flex-box column, center, flex-start;
-    background: url(../img/hero-bg.jpg);
-    background-size: cover;
-    background-position: center;
     min-height: 100vh;
     color: #fff;
     position: relative;
@@ -10,6 +7,10 @@
     &__content {
         @mixin flex-box row, center, space-between;
         padding-top: 65px;
+
+        @media (width <= 960px) {
+            flex-direction: column;
+        }
     }
 }
 
@@ -44,6 +45,19 @@
             }
         }
     }
+
+    @media (width <= 960px) {
+        margin-top: 25px;
+    }
+
+    @media (width < 768px) {
+        flex-direction: column;
+
+        a {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+    }
 }
 
 .main-title { 
@@ -52,4 +66,27 @@
     margin: auto;
     font-weight: 100;
     max-width: 100%;
+    padding: 0 25px;
+
+    @media (width <= 960px) {
+        font-size: 42px;
+    }
+
+    @media (width < 768px) {
+        font-size: 30px;
+    }
+}
+
+.footer {
+    padding: 10px 0;
+
+   .footer__container {
+        @mixin flex-box row, center, space-between;
+        flex-wrap: wrap;
+   }
+
+   &__left {
+       @mixin flex-box row, center, flex-start;
+       flex-wrap: wrap;
+   }
 }

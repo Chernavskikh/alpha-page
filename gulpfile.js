@@ -37,7 +37,7 @@ var styleReporter = {
 // server connect
 gulp.task('connect', function () {
     connect.server({
-        root: './dist', //path to project
+        root: '.', //path to project
         livereload: true,
     });
 });
